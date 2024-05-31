@@ -48,13 +48,16 @@
       </form>
     </div>
   </nav>
-
-  <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  {% if messages %}
+  {% for messages in messages %}
+  <div class="alert alert-{{messages.tags}} alert-dismissible fade show my-0" role="alert">
+    <strong>{{messages}}</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  {% endfor %}
+  {% endif %}
 {% block body %}{% endblock body %}
   <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
